@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Usertwo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Route::get()
+
+// Route::get('/users', function () {
+//     $users = Usertwo::get();
+//     return response()->json([
+//         $users
+//     ]);
+// });
