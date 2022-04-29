@@ -44,7 +44,7 @@
 #     "When the account was last updated."
 #     updated_at: DateTime!
 # }
-############# Final Test ##############
+# ############ Final Test ##############
 # type Query{
 #     users: [User!]! @all
 #     usertwos: [Usertwo!]! @all
@@ -65,7 +65,8 @@
 # type User{
 #     id: ID,
 #     name: String,
-#     email_verified_at: String!
+#     email_verified_at: String,
+#     email: String
 # }
 ### API
 # {
@@ -79,6 +80,7 @@
 # type Query{
 #     user(id: ID @eq): User @find
 # }
+
 
 # type User{
 #     id: ID,
@@ -104,7 +106,7 @@
 # type User{
 #     id: ID,
 #     name: String,
-#     email_verified_at: [String!
+#     email_verified_at: String
 # }
 # ####OUTPUT CALL:
 # {
@@ -128,6 +130,7 @@
 ##### Create @@@@@@@@@
 # type Query{
 #     users: [User!]! @all
+#     user(id: ID @eq): User @find
 # }
 # type Mutation {
 #   createUser(name: String!, email: String!, password: String!): User! @create
@@ -224,6 +227,7 @@
 # type Query{
 #     users: [User!]! @paginate
 #     user(id: ID @eq): User @find
+
 #     posts: [Post!]! @all
 # }
 
@@ -254,27 +258,27 @@
 
 ##### tut -9 (n + 1)
 
-# type Query{
-#     # users: [User!]! @all
-#     users: [User!]! @paginate
-#     user(id: ID @eq): User @find
-#     posts: [Post!]! @all
-# }
+type Query{
+    # users: [User!]! @all
+    users: [User!]! @paginate
+    user(id: ID @eq): User @find
+    posts: [Post!]! @all
+}
 
-# type User{
-#     id: ID,
-#     name: String,
-#     email: String,
-#     email_verified_at: String!,
-#     posts: [Post]! @hasMany
-# }
+type User{
+    id: ID,
+    name: String,
+    email: String,
+    email_verified_at: String!,
+    posts: [Post]! @hasMany
+}
 
-# type Post{
-#     id: ID,
-#     title: String,
-#     content: String,
-#     author: User! @belongsTo
-# }
+type Post{
+    id: ID,
+    title: String,
+    content: String,
+    author: User! @belongsTo
+}
 
 # ###OUTPUT
 # {
